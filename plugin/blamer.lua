@@ -1,0 +1,1 @@
+require('blamer').setup()
