@@ -6,6 +6,21 @@ A git blame plugin for Neovim inspired by VS Code's GitLens plugin.
 
 Blame information for the line under your cursor (or your visual selection) is shown as virtual text next to the line, after a short delay.
 
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+- [Commands](#commands)
+- [Configuration](#configuration)
+- [Highlight](#highlight)
+- [Lua API](#lua-api)
+- [How it works](#how-it-works)
+- [Troubleshooting](#troubleshooting)
+- [Authors](#authors)
+- [License](#license)
+
 ## Features
 
 - Shows the commit that last touched the line under the cursor as virtual text
