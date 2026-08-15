@@ -41,7 +41,8 @@ Blame information for the line under your cursor (or your visual selection) is s
 
 The plugin works out of the box with default settings even without calling `setup()`.
 
-#### lazy.nvim
+<details>
+<summary><strong>lazy.nvim</strong> (recommended)</summary>
 
 ```lua
 {
@@ -71,7 +72,10 @@ If you want to lazy-load it instead, trigger on the commands:
 
 > **Note:** with lazy-loading, the commands are only available after the plugin loads. If you get `E492: Not an editor command`, the plugin has not been loaded yet — trigger it with the `cmd` list above or use `lazy = false`.
 
-#### vim-plug
+</details>
+
+<details>
+<summary><strong>vim-plug</strong></summary>
 
 ```vim
 call plug#begin('~/.local/share/nvim/plugged')
@@ -81,7 +85,10 @@ Plug 'saifshahriar/blamer.nvim'
 call plug#end()
 ```
 
-#### Packer
+</details>
+
+<details>
+<summary><strong>Packer</strong></summary>
 
 ```lua
 require('packer').startup(function(use)
@@ -95,6 +102,8 @@ require('packer').startup(function(use)
   -- other ...
 end)
 ```
+
+</details>
 
 ## Quick Start
 
@@ -137,7 +146,8 @@ require('blamer').setup({
 
 All options are passed as a table to `require('blamer').setup({ ... })`.
 
-### `enabled`
+<details>
+<summary><code>enabled</code> — <em>boolean</em>, default <code>false</code></summary>
 
 Enables blamer on Neovim startup.
 
@@ -145,23 +155,20 @@ You can toggle blamer on/off at any time with the `:BlamerToggle` command.
 
 If the current directory is not a git repository the blamer will be automatically disabled.
 
-- **Type:** `boolean`
-- **Default:** `false`
-
 ```lua
 require('blamer').setup({
   enabled = true,
 })
 ```
 
-### `delay`
+</details>
+
+<details>
+<summary><code>delay</code> — <em>number</em>, default <code>1000</code></summary>
 
 The delay in milliseconds for the blame message to show after the cursor stops moving.
 
 Setting this too low may cause performance issues, since the git blame command runs synchronously on every refresh.
-
-- **Type:** `number`
-- **Default:** `1000`
 
 ```lua
 require('blamer').setup({
@@ -169,12 +176,12 @@ require('blamer').setup({
 })
 ```
 
-### `show_in_visual_modes`
+</details>
+
+<details>
+<summary><code>show_in_visual_modes</code> — <em>boolean</em>, default <code>true</code></summary>
 
 Enables / disables blamer in visual modes. When enabled, the whole visual selection is blamed, line by line.
-
-- **Type:** `boolean`
-- **Default:** `true`
 
 ```lua
 require('blamer').setup({
@@ -182,14 +189,14 @@ require('blamer').setup({
 })
 ```
 
-### `show_in_insert_modes`
+</details>
+
+<details>
+<summary><code>show_in_insert_modes</code> — <em>boolean</em>, default <code>true</code></summary>
 
 Enables / disables blamer in insert modes.
 
 When `false`, blame is hidden while you are typing and re-shown when you leave insert mode.
-
-- **Type:** `boolean`
-- **Default:** `true`
 
 ```lua
 require('blamer').setup({
@@ -197,12 +204,12 @@ require('blamer').setup({
 })
 ```
 
-### `prefix`
+</details>
+
+<details>
+<summary><code>prefix</code> — <em>string</em>, default <code>'   '</code></summary>
 
 The prefix that will be added to the template.
-
-- **Type:** `string`
-- **Default:** `'   '`
 
 ```lua
 require('blamer').setup({
@@ -210,7 +217,10 @@ require('blamer').setup({
 })
 ```
 
-### `template`
+</details>
+
+<details>
+<summary><code>template</code> — <em>string</em>, default <code>'&lt;author&gt;, &lt;author-time&gt; • &lt;summary&gt;'</code></summary>
 
 The template for the blame message that will be shown.
 
@@ -228,21 +238,18 @@ Any combination of the fields below can be used; unknown fields are left untouch
 | `<commit-short>`   | Short commit hash (first 8 characters)     |
 | `<commit-long>`    | Full commit hash (40 characters)           |
 
-- **Type:** `string`
-- **Default:** `'<author>, <author-time> • <summary>'`
-
 ```lua
 require('blamer').setup({
   template = '<committer> <summary>',
 })
 ```
 
-### `date_format`
+</details>
+
+<details>
+<summary><code>date_format</code> — <em>string</em>, default <code>'%d/%m/%y %H:%M'</code></summary>
 
 The [strftime format](https://devhints.io/datetime#strftime-format) of the date fields (`<author-time>`, `<committer-time>`). Ignored when `relative_time` is enabled.
-
-- **Type:** `string`
-- **Default:** `'%d/%m/%y %H:%M'`
 
 ```lua
 require('blamer').setup({
@@ -250,18 +257,20 @@ require('blamer').setup({
 })
 ```
 
-### `relative_time`
+</details>
+
+<details>
+<summary><code>relative_time</code> — <em>boolean</em>, default <code>false</code></summary>
 
 Shows commit dates in a relative format (e.g. `3 minutes ago`) instead of the absolute date.
-
-- **Type:** `boolean`
-- **Default:** `false`
 
 ```lua
 require('blamer').setup({
   relative_time = true,
 })
 ```
+
+</details>
 
 ## Highlight
 
